@@ -46,5 +46,11 @@ namespace Marsprofile.Pages
             return actualLanguage.Text;
         }
 
+        public string GetLanguageLevel(IWebDriver driver)
+        {
+            IWebElement actualLevel = driver.FindElement(By.XPath(" //*[@id='account - profile - section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td[2]"));
+            return actualLevel.Text;
+        }
+
     }
 }

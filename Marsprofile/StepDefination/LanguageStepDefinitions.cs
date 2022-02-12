@@ -36,7 +36,10 @@ namespace Marsprofile.StepDefinations
         {
             Language languagePageObj = new Language();
             string actualLanguage = languagePageObj.Getlanguage(driver);
+            string actualLevel = languagePageObj.GetLanguageLevel(driver);
+
             Assert.That(actualLanguage == "Hindi", "Actual Language and expected language do not match.");
+            Assert.That(actualLevel == "Fluent", "Actual Level and expected level do not match");
         }
     }
 }

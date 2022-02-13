@@ -1,38 +1,34 @@
 using Marsprofile.Pages;
 using Marsprofile.Utilities;
+using Microsoft.VisualStudio.Services.WebPlatform;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using System;
 using TechTalk.SpecFlow;
 
-
-namespace Marsprofile.StepDefinations
+namespace Marsprofile.Stepdefinations
 {
-   
     [Binding]
-    public class LanguageStepDefinitions : CommonDriver
+    public class LanguageStepDefinitions  : CommonDriver
     {
-       
-            
-        [Given(@"I lodged into Mars Logo portal successfully")]
-        public void GivenILodgedIntoMarsLogoPortalSuccessfully()
+        [Given(@"I lodged into Mars language portal successfully")]
+        public void GivenILodgedIntoMarsLanguagePortalSuccessfully()
         {
             driver = new ChromeDriver();
-           
-            LoginPage loginPageobj = new LoginPage();
-            loginPageobj.LoginSteps(driver);
 
+            LoginPage loginPageobj = new();
+            loginPageobj.LoginSteps(driver);
         }
 
-        [When(@"I add language details")]
-        public void WhenIAddProfileDetails()
+        [When(@"I add language and Level details")]
+        public void WhenIAddLanguageAndLevelDetails()
         {
             Language languagePageObj = new Language();
-            languagePageObj.AddLanguage(driver);
+            Language.AddLanguage(driver);
         }
 
-        [Then(@"Language details should be able to see on profile page")]
-        public void ThenProfileDetailsShouldBeAbleToSeeOnProfilePage()
+        [Then(@"Language details should be able to see on language profile  page")]
+        public void ThenLanguageDetailsShouldBeAbleToSeeOnLanguageProfilePage()
         {
             Language languagePageObj = new Language();
             string actualLanguage = languagePageObj.Getlanguage(driver);

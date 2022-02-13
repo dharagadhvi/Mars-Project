@@ -1,14 +1,23 @@
-﻿using NUnit.Framework;
+﻿using Marsprofile.Utililty;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 
 namespace Marsprofile.Pages
 {
     public class LoginPage
 
+
+
     {
-        public  void LoginSteps(IWebDriver driver)
+        public void LoginSteps(IWebDriver driver)
 
         {
             //open web driver
@@ -19,6 +28,9 @@ namespace Marsprofile.Pages
             //launch mars portal
 
             driver.Navigate().GoToUrl("http://localhost:5000/");
+
+            IWebElement SigninObj = driver.FindElement(By.XPath("//*[@id='home']/div/div/div[1]/div/a"));
+            SigninObj.Click();
 
             //identify username textbox and enter valid textbox
 
@@ -36,32 +48,13 @@ namespace Marsprofile.Pages
                 IWebElement LoginButton = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
                 LoginButton.Click();
 
-
-
-                //check if user logeed in successfully
-
-                IWebElement HiDhara = driver.FindElement(By.XPath("//*[@id='account - profile - section']/div/div[1]/div[2]/div/span"));
-
-                if (HiDhara.Text == "Hi Dhara")
-
-                {
-                    Console.WriteLine("logged in Successfully, test Passed");
-
-                }
-                else
-                {
-
-                    Console.WriteLine("Login failed,Test Failed");
-
-                }
             }
             catch (Exception ex)
             {
                 Assert.Fail("Mars portal login page did not launch", ex.Message);
             }
-            
+
         }
     }
 }
-    
 

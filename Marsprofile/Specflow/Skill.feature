@@ -11,9 +11,9 @@ Scenario: Add skill detail description with valid details
 	Then Profile details should be able to see on profile page
 
 #Examples: 
-#| Skill            |  | Level        |
-#| Customer Service |  | Intermediate |
-#| Administration   |  | Excellent    |
+#| Skill             | Level        |
+#| Customer Service  | Intermediate |
+#| Administration    | Excellent    |
 #
 #@skill
 #Scenario: Add duplicate skill detail description with valid details
@@ -23,8 +23,8 @@ Scenario: Add skill detail description with valid details
 #	Then Profile details should  not be able to see on profile page and <error message> should be seen
 #
 #Examples: 
-#| Skill            |  | error message                                   |
-#| Customer Service |  | This skill is alreday exist in your skill List  |
+#| Skill            |   error message                                   |
+#| Customer Service |   This skill is alreday exist in your skill List  |
 #
 #@skill
 #Scenario: edit skill detail description with valid details
@@ -34,9 +34,9 @@ Scenario: Add skill detail description with valid details
 #	Then Profile details should be able to see on profile page
 #
 #Examples: 
-#| Skill            |  | Level          |
-#| Customer Service |  | Excellent      |
-#| Administration   |  | Intermediate   |
+#| Skill            |   Level          |
+#| Customer Service |   Excellent      |
+#| Administration   |   Intermediate   |
 #
 #@skill
 #Scenario: delete skill detail description 

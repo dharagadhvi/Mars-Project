@@ -12,8 +12,8 @@ Scenario: Add certificate detail
 	Then certificate  details should be able to see on profile page
 
 #	#Examples: 
-#	#| Certificate |  | From |  | Year |
-#	#| ITIL        |  | DEF  |  | 2021 |
+#	#| Certificate |  From |  Year |
+#	#| ITIL        |  DEF  |  2021 |
 #
 #	@Certifications
 #Scenario: Add duplicate certificate detail description with valid details
@@ -22,8 +22,8 @@ Scenario: Add certificate detail
 #	When I add <Certificate>,<From>,<Year> details
 #	Then Profile details should be able to see on profile page
 #	#Examples: 
-#	#| Certificate |  | From |  | Year |  | error message                                              |
-#	#| ITIL        |  | DEF  |  | 2021 |  | This certificate is alreday exist in your certificate List |
+#	#| Certificate  | From   | Year |  error message                                              |
+#	#| ITIL          | DEF    | 2021 | This certificate is alreday exist in your certificate List |
 #
 #	@Certifications
 #Scenario: edit certificate detail description with valid details
@@ -32,8 +32,8 @@ Scenario: Add certificate detail
 #	When I edit <Certificate>,<From>,<Year> details
 #	Then Profile details should be able to see on profile page
 #	#Examples: 
-#	#| Certificate |  | From |  | Year |  
-#	#| ITIL        |  | DEF  |  | 2022 | 
+#	#| Certificate |   From |   Year |  
+#	#| ITIL        |   DEF  |   2022 | 
 #
 #	@Certifications
 #Scenario: delete certificate detail description 

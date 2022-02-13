@@ -11,9 +11,9 @@
 #	Then Language details should be able to see on profile page
 
 #Examples: 
-#	| Language |  | Level          |
-#	| Hindi    |  | Conversational |
-#	| English  |  | Fluent         |
+#	| Language |   Level          |
+#	| Hindi    |   Conversational |
+#	| English  |   Fluent         |
 ##
 #@Language	
 #Scenario: Add duplicate detail description with valid details
@@ -22,8 +22,8 @@
 #	When I add duplicate <language> details
 #	Then Language details should  not be able to see on profile page and <error message> should be seen
 #	#Examples: 
-#	#| Language |  | error message                                        |
-#	#| Hindi    |  | This Language is alreday exist in your language List |
+#	#| Language  | error message                                        |
+#	#| Hindi     | This Language is alreday exist in your language List |
 #	
 #@Language	
 #Scenario: Edit  detail description with valid details
@@ -33,9 +33,9 @@
 #	Then Language edited details should be able to see on profile page
 #
 #	#Examples: 
-#	#| Language |  | Level          |
-#	#| Hindi    |  | Fluent         |
-#	#| English  |  | Conversational |
+#	#| Language |   Level          |
+#	#| Hindi    |   Fluent         |
+#	#| English  |   Conversational |
 #
 #
 #@Language	

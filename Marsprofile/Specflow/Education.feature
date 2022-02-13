@@ -23,8 +23,8 @@ Scenario: Add education detail description with valid details
 #	Then education details should  not be able to see on profile page and <error message> should be seen
 
 #Examples: 
-#| Country |  | Universite |  | Title  |  | Degree |  | Gradiation Year |  | error Message                                          |
-#| India   |  | AD Patel   |  | B.Tech |  | IT     |  | 2009            |  | This Education is alreday exist in your Education List |
+#| Country |   Universite   | Title    | Degree   | Gradiation Year   | error Message                                          |
+#| India   |   AD Patel     | B.Tech   | IT       | 2009              | This Education is alreday exist in your Education List |
 #
 #@education
 #Scenario: edit education detail description with valid details
@@ -33,8 +33,8 @@ Scenario: Add education detail description with valid details
 #	When I edit <Country>.<University>,<Title>,<Degree>,<Graduation Year> details
 #	Then education details should be able to see on profile page
 ##	Examples: 
-##| Country   |  | Universite |  | Title  |  | Degree |  | Gradiation Year |
-##| Australia |  | XYZ        |  | B.Tech |  | IT     |  | 2009            |
+##| Country   |  Universite  | Title    | Degree   | Gradiation Year |
+##| Australia |   XYZ        | B.Tech   | IT       | 2009            |
 #
 #@education
 #Scenario: Delete education detail description with valid details

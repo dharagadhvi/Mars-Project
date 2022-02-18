@@ -1,5 +1,4 @@
 ﻿using Marsprofile.Pages;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -7,30 +6,72 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TechTalk.SpecFlow;
+using static Marsprofile.Pages.CommonMethods;
+using RelevantCodes.ExtentReports;
 #nullable disable
 
+
 namespace Marsprofile.Utilities
-{    
-   
-    public  class CommonDriver
+{
+    [Binding]
+
+    public class CommonDriver : Driver
     {
-        public IWebDriver driver;
+        //    [BeforeTestRun]
 
-        [OneTimeSetUp]
-        public void LoginFunction()
+        //    public static void BeforeTestRun()
+        //    {
+        //        ExtentReports();
+        //    }
 
+
+        //    [BeforeFeature]
+
+        //    public static void BeforeFeature(FeatureContext contex)
+        //    {
+        //        test = Extent.StartTest(contex.FeatureInfo.Title);
+
+        //    }
+
+        [BeforeScenario]
+
+        //public IWebDriver driver;
+
+        //    public object LogStatus { get; private set; }
+        //    public static object Extent { get; private set; }
+        //    public IWebDriver Driver { get => driver; set => driver = value; }
+
+        public void SetUp()
         {
-            driver = new ChromeDriver();
+            Initialize();
+            Thread.Sleep(2000);
 
-            //Login Page object initialization and defination
-            LoginPage loginPageobj = new LoginPage();
-            loginPageobj.LoginSteps(driver);
+            //ExcellibHelper.PopulateInCollection()
+
+            Marsprofile.Pages.Login.LoginSteps(); ;
+
         }
-        [OneTimeTearDown]
-        public void CloseTestRun()
+
+
+        [AfterScenario]
+        public void TearDown()
         {
+            Thread.Sleep(500);
+            // Screenshot
+            string img = SaveScreenShotClass.SaveScreenshot(Driver.driver, "Report");
+            test.Log(LogStatus.Info, "Snapshot below: " + test.AddScreenCapture(img));
+
+            // end test. (Reports)
+            CommonMethods.Extent.EndTest(CommonMethods.test);
+
+            // calling Flush writes everything to the log file (Reports)
+            CommonMethods.Extent.Flush();
+
+            //Close the browser
             driver.Quit();
         }
-
     }
+           
+    
 }

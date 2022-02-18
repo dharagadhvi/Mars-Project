@@ -17,37 +17,42 @@ namespace Marsprofile.Stepdefinations
         {
             driver = new ChromeDriver();
 
-            LoginPage loginPageobj = new LoginPage();
-            loginPageobj.LoginSteps(driver);
+            Login loginPageobj = new Login();
+            loginPageobj.LoginSteps();
         }
-
-        [When(@"I add education details")]
-        public void WhenIAddEducationDetails()
+        [When(@"I add '([^']*)','([^']*)','([^']*)','([^']*)','([^']*)' details")]
+        public void WhenIAddDetails(string p0, string p1, string p2, string p3, string p4)
         {
             Education educationobj = new Education();
-            educationobj.AddEducation(driver);
+            educationobj.AddEducation(driver, p0, p1, p2, p3, p4);
         }
 
-        [Then(@"education details should be able to see on profile page")]
-        public void ThenEducationDetailsShouldBeAbleToSeeOnProfilePage()
+
+            [Then(@"added '([^']*)','([^']*)','([^']*)','([^']*)','([^']*)' details should be able to see on profile page")]
+        public void ThenAddedDetailsShouldBeAbleToSeeOnProfilePage(string p0, string p1, string p2, string p3, string p4)
         {
             Education educationobj = new Education();
 
-            string actualCountry = educationobj.Getcountry(driver);
-            string actualUniversity = educationobj.GetUniversity(driver);
-            string actualTitle = educationobj.GetTitle(driver);
-            string actualDegree = educationobj.GetDegree(driver);
-            string actualGraduation = educationobj.GetGraduation(driver);
+            string actualCountry = educationobj.Getcountry(driver,p0);
+            string actualUniversity = educationobj.GetUniversity(driver,p1);
+            string actualTitle = educationobj.GetTitle(driver,p2);
+            string actualDegree = educationobj.GetDegree(driver,p3);
+            string actualGraduation = educationobj.GetGraduation(driver,p4);
 
 
-            Assert.That(actualCountry == "India", "Actual country and expected country do not match");
-            Assert.That(actualUniversity == "A D Patel", "Actual university and expected university do not match");
-            Assert.That(actualTitle == "B.Tech", "Actual title and expected title do not match");
-            Assert.That(actualDegree == "IT", "Actual degree and expected degree do not match");
-            Assert.That(actualGraduation == "2009", "Actual year and expected year do not match");
+            Assert.That(actualCountry == p0, "Actual country and expected country do not match");
+            Assert.That(actualUniversity == p1, "Actual university and expected university do not match");
+            Assert.That(actualTitle == p2, "Actual title and expected title do not match");
+            Assert.That(actualDegree == p3, "Actual degree and expected degree do not match");
+            Assert.That(actualGraduation == p4, "Actual year and expected year do not match");
 
         }
+
+
+        
     }
+
+           
 }
 
 //        [When(@"I add duplicate India\.<University>,B\.Tech,IT,<Graduation Year> details")]

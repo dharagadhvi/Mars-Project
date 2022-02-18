@@ -11,7 +11,7 @@ namespace Marsprofile.Pages
 {
     internal class Skill
     {
-        public void AddSkill(IWebDriver driver)
+        public void AddSkill(IWebDriver driver,string skill,string level)
 
         {
             Thread.Sleep(3000);
@@ -41,13 +41,13 @@ namespace Marsprofile.Pages
             ClickOnAdd.Click();
             Thread.Sleep(5000);
         }
-        public string GetSkill(IWebDriver driver)
+        public string GetSkill(IWebDriver driver,string Skill)
         {
             IWebElement actualSkill = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td:nth-child(1)"));
             return actualSkill.Text;                                  
         }
 
-        public string GetSkillLevel(IWebDriver driver)
+        public string GetSkillLevel(IWebDriver driver,string Level)
         {
             IWebElement actualskillLevel = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td:nth-child(2)"));
             return actualskillLevel.Text;

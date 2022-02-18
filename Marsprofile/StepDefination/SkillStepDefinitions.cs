@@ -4,6 +4,7 @@ using TechTalk.SpecFlow;
 using Marsprofile.Pages;
 using Marsprofile.Utilities;
 using NUnit.Framework;
+#nullable disable
 
 namespace Marsprofile.Stepdefinations
 {
@@ -15,30 +16,32 @@ namespace Marsprofile.Stepdefinations
         {
             driver = new ChromeDriver();
 
-            LoginPage loginPageobj = new LoginPage();
-            loginPageobj.LoginSteps(driver);
+            Login loginPageobj = new Login ();
+            loginPageobj.LoginSteps();
 
         }
 
 
-        [When(@"I add Skill and Leveldetails")]
-        public void WhenIAddSkillAndLeveldetails()
+        [When(@"I add Customer Service and Intermediatedetails")]
+            public void WhenIAddCustomerServiceAndIntermediatedetails(string p0,string p1)
         {
+               
             Skill skillobj = new Skill();
-            skillobj.AddSkill(driver);
+            skillobj.AddSkill(driver,p0,p1);
         }
 
 
-        [Then(@"Profile details should be able to see on profile page")]
-        public void ThenProfileDetailsShouldBeAbleToSeeOnProfilePage()
+        [Then(@"Customer Service and Intermediate details should be able to see on profile page")]
+        public void ThenCustomerServiceAndIntermediateDetailsShouldBeAbleToSeeOnProfilePage(string p0,string p1)
         {
-            Skill skillobj = new Skill();
+            
+        Skill skillobj = new Skill();
 
-            string actualskill = skillobj.GetSkill(driver);
-            string actualskillLevel = skillobj.GetSkillLevel(driver);
+            string actualskill = skillobj.GetSkill(driver,p0);
+            string actualskillLevel = skillobj.GetSkillLevel(driver,p1);
 
-            Assert.That(actualskill == "Exellent Customer Service", "Actual skill and expected skill do not match");
-            Assert.That(actualskillLevel == "Intermediate", "Actual Level and expected level do not match");
+            Assert.That(actualskill == p0, "Actual skill and expected skill do not match");
+            Assert.That(actualskillLevel == p1, "Actual Level and expected level do not match");
         }
 
         //[When(@"I add duplicate Customer Service and <Level>details")]

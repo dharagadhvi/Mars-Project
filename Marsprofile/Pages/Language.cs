@@ -14,7 +14,7 @@ namespace Marsprofile.Pages
 {
     public class Language
     {
-        public static void AddLanguage(IWebDriver driver)
+        public  void AddLanguage(IWebDriver driver ,string Language,string Level)
         {
             //Adding Language to the profile
             //Wait.WaitToBeClickable(driver, "XPath", "//*[@id='account - profile - section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div", 5);
@@ -25,14 +25,14 @@ namespace Marsprofile.Pages
             IWebElement AddNewLanguage = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > thead > tr > th.right.aligned > div"));
             AddNewLanguage.Click();                                 
             IWebElement LanguageTextBox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(1) > input[type=text]"));
-            LanguageTextBox.SendKeys("Hindi");
+            LanguageTextBox.SendKeys(Language);
 
             IWebElement ChooseLanguageLevel = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(2) > select"));
             ChooseLanguageLevel.Click();
             Thread.Sleep(3000);
 
             var SelectElement = new SelectElement(ChooseLanguageLevel);
-            SelectElement.SelectByValue("Fluent");
+            SelectElement.SelectByValue(Level);
 
             //SELECT LanguageLevel = new Select(driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(2) > select > option:nth-child(4)")));
             //LanguageLevel.SelectByVisualText("Fluent");
@@ -53,19 +53,20 @@ namespace Marsprofile.Pages
             //Assert.That(actualLevel.Text == "Fluent", "Actual Level and expected level do not match.");
 
         }
-        public string Getlanguage(IWebDriver driver)
+        public string Getlanguage(IWebDriver driver,string Language)
         {
             IWebElement actualLanguage = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td:nth-child(1)"));
             return actualLanguage.Text;
+
             
         }
 
-        public string GetLanguageLevel(IWebDriver driver)
+        public string GetLanguageLevel(IWebDriver driver,string Level)
         {
             IWebElement actualLevel = driver.FindElement(By.CssSelector(" #account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td:nth-child(2)"));
             return actualLevel.Text;
-            
-        }
+
+                    }
 
     }
 }

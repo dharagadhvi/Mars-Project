@@ -9,12 +9,12 @@ People seeking for some skill can look into my detail
 @education
 Scenario: Add education detail description with valid details
     Given I logged into Mars portal on Education pages successfully 
-    When I add education details
-	Then education details should be able to see on profile page
+    When I add '<Country>','<University>','<Title>','<Degree>','<Graduation Year>' details
+	Then added '<Country>','<University>','<Title>','<Degree>','<Graduation Year>' details should be able to see on profile page
 
-#Examples: 
-#| Country |   Universite |   Title  |  Degree |  Gradiation Year |
-#| India   |   AD Patel   |   B.Tech |   IT     |  2009            |
+Examples: 
+| Country |   University |   Title  |  Degree |  Graduation Year |
+| India   |   AD Patel   |   B.Tech |   IT     |  2009            |
 
 #@education
 #Scenario: Add duplicate education detail description with valid details

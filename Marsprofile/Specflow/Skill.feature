@@ -7,13 +7,13 @@ People seeking for some skill can look into my detail
 @skill
 Scenario: Add skill detail description with valid details
     Given I logged into Mars skill portal successfully
-	When I add Skill and Leveldetails
-	Then Profile details should be able to see on profile page
+	When I add <Skill> and <Level>details
+	Then <Skill> and <Level> details should be able to see on profile page
 
-#Examples: 
-#| Skill             | Level        |
-#| Customer Service  | Intermediate |
-#| Administration    | Excellent    |
+Examples: 
+| Skill             | Level        |
+| Customer Service  | Intermediate |
+
 #
 #@skill
 #Scenario: Add duplicate skill detail description with valid details

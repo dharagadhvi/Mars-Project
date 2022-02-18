@@ -77,11 +77,22 @@ namespace Marsprofile.Specflow
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add education detail description with valid details")]
         [NUnit.Framework.CategoryAttribute("education")]
-        public virtual void AddEducationDetailDescriptionWithValidDetails()
+        [NUnit.Framework.TestCaseAttribute("India", "AD Patel", "B.Tech", "IT", "2009", null)]
+        public virtual void AddEducationDetailDescriptionWithValidDetails(string country, string university, string title, string degree, string graduationYear, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "education"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Country", country);
+            argumentsOfScenario.Add("University", university);
+            argumentsOfScenario.Add("Title", title);
+            argumentsOfScenario.Add("Degree", degree);
+            argumentsOfScenario.Add("Graduation Year", graduationYear);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add education detail description with valid details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 10
 this.ScenarioInitialize(scenarioInfo);
@@ -107,10 +118,11 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.Given("I logged into Mars portal on Education pages successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 12
-    testRunner.When("I add education details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When(string.Format("I add \'{0}\',\'{1}\',\'{2}\',\'{3}\',\'{4}\' details", country, university, title, degree, graduationYear), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
- testRunner.Then("education details should be able to see on profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("added \'{0}\',\'{1}\',\'{2}\',\'{3}\',\'{4}\' details should be able to see on profile page" +
+                            "", country, university, title, degree, graduationYear), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

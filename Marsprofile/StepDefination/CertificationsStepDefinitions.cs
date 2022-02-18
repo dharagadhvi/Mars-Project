@@ -16,32 +16,34 @@ namespace Marsprofile.Stepdefinations
         {
             driver = new ChromeDriver();
 
-            LoginPage loginPageobj = new LoginPage();
-            loginPageobj.LoginSteps(driver);
+            Login loginPageobj = new Login();
+            loginPageobj.LoginSteps();
 
         }
-        [When(@"I add Certificate,From,Year details")]
-        public void WhenIAddCertificateFromYearDetails()
+        [When(@"I add '([^']*)','([^']*)','([^']*)' details")]
+        public void WhenIAddDetails(string p0, string p1, string p2)
         {
-            Certificate ceritificateobj= new Certificate();
-            ceritificateobj.AddCertificate(driver);
 
-        }
-        [Then(@"certificate  details should be able to see on profile page")]
-        public void ThenCertificateDetailsShouldBeAbleToSeeOnProfilePage()
-        {
             Certificate ceritificateobj = new Certificate();
+            ceritificateobj.AddCertificate(driver, p0, p1, p2);
+        }
+        [Then(@"added '([^']*)','([^']*)','([^']*)'  details should be able to see on profile page")]
+        public void ThenAddedDetailsShouldBeAbleToSeeOnProfilePage(string p0, string p1, string p2)
+        {
+           
+        Certificate ceritificateobj = new Certificate();
 
-            string actualCertificate = ceritificateobj.GetCertificate(driver);
-            string actualfrom = ceritificateobj.Getfrom(driver);
-            string actualceryear = ceritificateobj.Getyear(driver);
+            string actualCertificate = ceritificateobj.GetCertificate(driver,p0);
+            string actualfrom = ceritificateobj.Getfrom(driver,p1);
+            string actualceryear = ceritificateobj.Getyear(driver,p2);
 
-            Assert.That(actualCertificate == "Certificate III", "Actual certificate and expected certificate do not match");
-            Assert.That(actualfrom == "Tafe", "Actual from certificate and expected from certificate do not match");
-            Assert.That(actualceryear == "2018", "Actual certificate year and expected certificate year do not match");
+            Assert.That(actualCertificate == p0, "Actual certificate and expected certificate do not match");
+            Assert.That(actualfrom == p1, "Actual from certificate and expected from certificate do not match");
+            Assert.That(actualceryear == p2, "Actual certificate year and expected certificate year do not match");
 
         }
 
+    }
 
               //[When(@"I edit ITIL,DEF,(.*) details")]
         //public void WhenIEditITILDEFDetails(int p0)
@@ -54,5 +56,5 @@ namespace Marsprofile.Stepdefinations
         //{
         //    throw new PendingStepException();
         //}
-    }
+    
 }

@@ -8,12 +8,12 @@ People seeking for some skill can look into my detail
 @Certifications
 Scenario: Add certificate detail 
     Given I logged into Mars Logo portal successfully
-	When I add Certificate,From,Year details
-	Then certificate  details should be able to see on profile page
+	When I add '<Certificate>','<From>','<Year>' details
+	Then added '<Certificate>','<From>','<Year>'  details should be able to see on profile page
 
-#	#Examples: 
-#	#| Certificate |  From |  Year |
-#	#| ITIL        |  DEF  |  2021 |
+	Examples: 
+	| Certificate |  From |  Year |
+	| ITIL        |  DEF  |  2021 |
 #
 #	@Certifications
 #Scenario: Add duplicate certificate detail description with valid details

@@ -19,7 +19,7 @@ namespace Marsprofile.Pages
         public void LoginSteps()
 
         {
-            Driver.NavigateUrl();       
+            //Driver.NavigateUrl();       
 
             Thread.Sleep(1000);
 

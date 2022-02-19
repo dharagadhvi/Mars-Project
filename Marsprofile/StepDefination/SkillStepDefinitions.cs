@@ -5,6 +5,8 @@ using Marsprofile.Pages;
 using Marsprofile.Utilities;
 using OpenQA.Selenium;
 using NUnit.Framework;
+using static Marsprofile.Pages.Language;
+using static Marsprofile.Pages.CommonMethods;
 #nullable disable
 
 namespace Marsprofile.Stepdefinations
@@ -29,13 +31,40 @@ namespace Marsprofile.Stepdefinations
         [Then(@"added'([^']*)' and '([^']*)' details should be able to see on profile page")]
         public void ThenAddedAndDetailsShouldBeAbleToSeeOnProfilePage(string p0, string p1)
         {
-            Skill skillobj = new Skill();
+            try
+            {
+
+                Skill skillobj = new Skill();
+
+                CommonMethods.ExtentReports();
+                //Thread.Sleep(1000);
+                CommonMethods.test = CommonMethods.Extent.StartTest("Add Skill Detail");
+                
 
             string actualskill = skillobj.GetSkill(driver, p0);
             string actualskillLevel = skillobj.GetSkillLevel(driver, p1);
 
-            Assert.That(actualskill == p0, "Actual skill and expected skill do not match");
-            Assert.That(actualskillLevel == p1, "Actual Level and expected level do not match");
+                if (actualskill == p0 && actualskillLevel == p1)
+                {
+                    CommonMethods.test.Log(RelevantCodes.ExtentReports.LogStatus.Pass, "Test Passed, Added a skill Successfully");
+                    SaveScreenShotClass.SaveScreenshot(Driver.driver, "SkillAdded");
+                    Assert.IsTrue(true);
+
+                }
+
+                else
+                    CommonMethods.test.Log(RelevantCodes.ExtentReports.LogStatus.Fail, "Test Failed");
+
+            }
+
+            catch (Exception e)
+            {
+                CommonMethods.test.Log(RelevantCodes.ExtentReports.LogStatus.Fail, "Test Failed", e.Message);
+            }
+
+
+            //Assert.That(actualskill == p0, "Actual skill and expected skill do not match");
+            //Assert.That(actualskillLevel == p1, "Actual Level and expected level do not match");
         }
 
                //[When(@"I add duplicate Customer Service and <Level>details")]

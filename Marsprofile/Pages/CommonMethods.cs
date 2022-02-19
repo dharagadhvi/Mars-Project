@@ -8,8 +8,8 @@ namespace Marsprofile.Pages
     public class CommonMethods
     {
         //Screenshots
-        #region screenshots
-        public class SaveScreenShotClass
+       
+        public  class SaveScreenShotClass
         {
             public static string SaveScreenshot(IWebDriver driver, string ScreenShotFileName) // Definition
             {
@@ -36,7 +36,7 @@ namespace Marsprofile.Pages
                 throw new NotImplementedException();
             }
         }
-        #endregion
+        
 
         //ExtentReports
         #region reports

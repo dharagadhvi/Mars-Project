@@ -113,7 +113,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 10
-    testRunner.Given("I logged into Mars Logo portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("I click on Certificate tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 11
  testRunner.When(string.Format("I add \'{0}\',\'{1}\',\'{2}\' details", certificate, from, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

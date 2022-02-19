@@ -115,7 +115,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 11
-    testRunner.Given("I logged into Mars portal on Education pages successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("I click on Education tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 12
     testRunner.When(string.Format("I add \'{0}\',\'{1}\',\'{2}\',\'{3}\',\'{4}\' details", country, university, title, degree, graduationYear), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

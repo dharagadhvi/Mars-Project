@@ -4,15 +4,15 @@ I want a feature to add my skill
 So that
 People seeking for some skill can look into my detail
 	
-@skill
-Scenario: Add skill detail description with valid details
-    Given I logged into Mars skill portal successfully
-	When I add <Skill> and <Level>details
-	Then <Skill> and <Level> details should be able to see on profile page
+@Skill
+Scenario Outline: Add skill detail description with valid details
+    Given I click on Skill tab
+	When I add '<Skill>' and '<Level>'details
+	Then added'<Skill>' and '<Level>' details should be able to see on profile page
 
 Examples: 
-| Skill             | Level        |
-| Customer Service  | Intermediate |
+| Skill                      | Level        |
+| Exellent Customer Service  | Intermediate |
 
 #
 #@skill

@@ -1,25 +1,25 @@
-using System;
 using TechTalk.SpecFlow;
+using OpenQA.Selenium;
+using System;
 using Marsprofile.Pages;
 using Marsprofile.Utilities;
 using NUnit.Framework;
-using OpenQA.Selenium.Chrome;
+#nullable disable
 
 
 namespace Marsprofile.Stepdefinations
 {
     [Binding]
-    public class EducationStepDefinitions : CommonDriver
+    public class EducationStepDefinitions : Testfeatures
     {
 
-        [Given(@"I logged into Mars portal on Education pages successfully")]
-        public void GivenILoggedIntoMarsPortalOnEducationPagesSuccessfully()
+        [Given(@"I click on Education tab")]
+        public void GivenIClickOnEducationTab()
         {
-            driver = new ChromeDriver();
-
-            Login loginPageobj = new Login();
-            loginPageobj.LoginSteps();
+            Driver.driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.top.attached.tabular.menu > a.item.active"));
+            
         }
+
         [When(@"I add '([^']*)','([^']*)','([^']*)','([^']*)','([^']*)' details")]
         public void WhenIAddDetails(string p0, string p1, string p2, string p3, string p4)
         {

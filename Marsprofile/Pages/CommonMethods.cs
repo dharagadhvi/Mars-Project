@@ -1,13 +1,7 @@
-﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
+using OpenQA.Selenium;
 using RelevantCodes.ExtentReports;
 #nullable disable
-
 
 namespace Marsprofile.Pages
 {
@@ -37,10 +31,10 @@ namespace Marsprofile.Pages
                 return fileName.ToString();
             }
 
-            //internal static string SaveScreenshot(object driver, string v)
-            //{
-            //    throw new NotImplementedException();
-            //}
+            internal static string SaveScreenshot(object driver, string v)
+            {
+                throw new NotImplementedException();
+            }
         }
         #endregion
 
@@ -50,7 +44,6 @@ namespace Marsprofile.Pages
         public static ExtentTest test;
         public static ExtentReports Extent;
 
-
         public static void ExtentReports()
         {
             Extent = new ExtentReports(ConstantU.ReportsPath, true, DisplayOrder.NewestFirst);
@@ -58,12 +51,8 @@ namespace Marsprofile.Pages
         }
 
         #endregion
-    
-        
-
-
-
-
-
     }
 }
+
+
+

@@ -3,48 +3,42 @@ using System;
 using TechTalk.SpecFlow;
 using Marsprofile.Pages;
 using Marsprofile.Utilities;
+using OpenQA.Selenium;
 using NUnit.Framework;
 #nullable disable
 
 namespace Marsprofile.Stepdefinations
 {
     [Binding]
-    public class SkillStepDefinitions : CommonDriver
+    public class SkillStepDefinitions : Testfeatures
     {
-        [Given(@"I logged into Mars skill portal successfully")]
-        public void GivenILoggedIntoMarsSkillPortalSuccessfully()
+        [Given(@"I click on Skill tab")]
+        public void GivenIClickOnSkillTab()
         {
-            driver = new ChromeDriver();
-
-            Login loginPageobj = new Login ();
-            loginPageobj.LoginSteps();
-
+            Driver.driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.top.attached.tabular.menu > a.item.active"));
         }
 
-
-        [When(@"I add Customer Service and Intermediatedetails")]
-            public void WhenIAddCustomerServiceAndIntermediatedetails(string p0,string p1)
+    
+    [When(@"I add '([^']*)' and '([^']*)'details")]
+        public void WhenIAddAndDetails(string p0, string p1)
         {
-               
             Skill skillobj = new Skill();
-            skillobj.AddSkill(driver,p0,p1);
+            skillobj.AddSkill(driver, p0, p1);
         }
 
-
-        [Then(@"Customer Service and Intermediate details should be able to see on profile page")]
-        public void ThenCustomerServiceAndIntermediateDetailsShouldBeAbleToSeeOnProfilePage(string p0,string p1)
+        [Then(@"added'([^']*)' and '([^']*)' details should be able to see on profile page")]
+        public void ThenAddedAndDetailsShouldBeAbleToSeeOnProfilePage(string p0, string p1)
         {
-            
-        Skill skillobj = new Skill();
+            Skill skillobj = new Skill();
 
-            string actualskill = skillobj.GetSkill(driver,p0);
-            string actualskillLevel = skillobj.GetSkillLevel(driver,p1);
+            string actualskill = skillobj.GetSkill(driver, p0);
+            string actualskillLevel = skillobj.GetSkillLevel(driver, p1);
 
             Assert.That(actualskill == p0, "Actual skill and expected skill do not match");
             Assert.That(actualskillLevel == p1, "Actual Level and expected level do not match");
         }
 
-        //[When(@"I add duplicate Customer Service and <Level>details")]
+               //[When(@"I add duplicate Customer Service and <Level>details")]
         //public void WhenIAddDuplicateCustomerServiceAndLevelDetails()
         //{
         //    throw new PendingStepException();

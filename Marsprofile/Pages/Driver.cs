@@ -6,14 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-namespace Marsprofile.Pages
+
 #nullable disable
+
+namespace Marsprofile
 {
     public class Driver
     {
-
         //Initialize the browser
-        public static IWebDriver? driver { get; set; }
+        public static IWebDriver driver { get; set; }
 
         public static void Initialize()
         {
@@ -26,7 +27,7 @@ namespace Marsprofile.Pages
                 //Maximise the window
                 driver.Manage().Window.Maximize();
 
-                //driver.Navigate().GoToUrl(BaseUrl);
+                driver.Navigate().GoToUrl(BaseUrl);
 
             }
             catch (TimeoutException e)
@@ -36,16 +37,16 @@ namespace Marsprofile.Pages
             }
         }
 
-        public static string BaseUrl
+        public  static string BaseUrl
         {
-            get { return ConstantU.Url; }
+            get { return Pages.ConstantU.Url; }
         }
 
 
         //Implicit Wait
         public static void TurnOnWait()
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(6);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1500);
 
         }
 

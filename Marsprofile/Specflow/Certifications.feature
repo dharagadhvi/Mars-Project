@@ -6,8 +6,8 @@ So that
 People seeking for some skill can look into my detail
 
 @Certifications
-Scenario: Add certificate detail 
-    Given I logged into Mars Logo portal successfully
+Scenario Outline: Add certificate detail 
+    Given I click on Certificate tab
 	When I add '<Certificate>','<From>','<Year>' details
 	Then added '<Certificate>','<From>','<Year>'  details should be able to see on profile page
 

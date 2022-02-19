@@ -11,7 +11,7 @@ namespace Marsprofile.Pages
 {
     internal class Skill
     {
-        public void AddSkill(IWebDriver driver,string skill,string level)
+        public void AddSkill(IWebDriver driver,string Skill,string Level)
 
         {
             Thread.Sleep(3000);

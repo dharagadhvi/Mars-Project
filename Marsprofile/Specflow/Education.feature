@@ -7,8 +7,8 @@ So that
 People seeking for some skill can look into my detail
 
 @education
-Scenario: Add education detail description with valid details
-    Given I logged into Mars portal on Education pages successfully 
+Scenario Outline: Add education detail description with valid details
+    Given I click on Education tab 
     When I add '<Country>','<University>','<Title>','<Degree>','<Graduation Year>' details
 	Then added '<Country>','<University>','<Title>','<Degree>','<Graduation Year>' details should be able to see on profile page
 

@@ -76,12 +76,12 @@ namespace Marsprofile.Specflow
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add skill detail description with valid details")]
-        [NUnit.Framework.CategoryAttribute("skill")]
-        [NUnit.Framework.TestCaseAttribute("Customer Service", "Intermediate", null)]
+        [NUnit.Framework.CategoryAttribute("Skill")]
+        [NUnit.Framework.TestCaseAttribute("Exellent Customer Service", "Intermediate", null)]
         public virtual void AddSkillDetailDescriptionWithValidDetails(string skill, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "skill"};
+                    "Skill"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -112,13 +112,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 9
-    testRunner.Given("I logged into Mars skill portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("I click on Skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
- testRunner.When(string.Format("I add {0} and {1}details", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I add \'{0}\' and \'{1}\'details", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
- testRunner.Then(string.Format("{0} and {1} details should be able to see on profile page", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("added\'{0}\' and \'{1}\' details should be able to see on profile page", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

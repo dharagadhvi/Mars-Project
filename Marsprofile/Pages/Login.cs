@@ -16,10 +16,11 @@ namespace Marsprofile.Pages
     public  class Login
 
     {
-        public  void LoginSteps()
+        public void LoginSteps()
 
         {
-            Driver.NavigateUrl();
+            Driver.NavigateUrl();       
+
             Thread.Sleep(1000);
 
             Driver.driver.FindElement(By.XPath("//a[contains(.,'Sign In')]")).Click();
@@ -30,13 +31,16 @@ namespace Marsprofile.Pages
             Thread.Sleep(1000);
             //Click on Login Button
             Driver.driver.FindElement(By.XPath("//button[contains(.,'Login')]")).Click();
+
+            Thread.Sleep(3000);
             //button[contains(.,'Sign Out')]
             //Validate if user logged in or not
             IWebElement loggedin = Driver.driver.FindElement(By.CssSelector("#account-profile-section > div > div.ui.secondary.menu > div.right.item > div > span"));
             Assert.AreEqual(loggedin.Text, "Hi Dhara");
-            //open web driver
+            Thread.Sleep(2000);
+
         }
-            
+
     }
 }
 

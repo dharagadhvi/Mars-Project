@@ -1,5 +1,5 @@
 using TechTalk.SpecFlow;
-using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
 using System;
 using Marsprofile.Pages;
 using Marsprofile.Utilities;
@@ -9,16 +9,15 @@ using NUnit.Framework;
 namespace Marsprofile.Stepdefinations
 {
     [Binding]
-    public class LanguageStepDefinitions : CommonDriver
+    public class LanguageStepDefinitions: Testfeatures
     {
-        [Given(@"I lodged into Mars language portal successfully")]
-        public void GivenILodgedIntoMarsLanguagePortalSuccessfully()
+        [Given(@"I click on Language tab")]
+        public void GivenIClickOnLanguageTab()
         {
-            //driver = new ChromeDriver();
-
-            Login loginPageobj = new Login();
-            loginPageobj.LoginSteps();
+            Driver.driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.top.attached.tabular.menu > a.item.active"));
         }
+
+    
         [When(@"I add '([^']*)' and '([^']*)' details")]
         public void WhenIAddAndDetails(string p0, string p1)
         {

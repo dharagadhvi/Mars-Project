@@ -45,12 +45,7 @@ namespace Marsprofile.Pages
             ClickAdd.Click();
             Thread.Sleep(5000);
 
-
-            //IWebElement actualLanguage = driver.FindElement(By.XPath("//*[@id='account - profile - section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
-            //IWebElement actualLevel = driver.FindElement(By.XPath("//*[@id='account - profile - section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[Last()]/tr/td[2]"));
-
-            //Assert.That(actualLanguage.Text == "Hindi", "Actual Language and expected language do not match.");
-            //Assert.That(actualLevel.Text == "Fluent", "Actual Level and expected level do not match.");
+            
 
         }
         public string Getlanguage(IWebDriver driver,string Language)
@@ -67,6 +62,6 @@ namespace Marsprofile.Pages
             return actualLevel.Text;
 
                     }
-
+        
     }
 }

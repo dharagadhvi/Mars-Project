@@ -26,13 +26,15 @@ namespace Marsprofile
 
                 //Maximise the window
                 driver.Manage().Window.Maximize();
+                //TurnOnWait();
+                //Thread.Sleep(10000);
 
-                driver.Navigate().GoToUrl(BaseUrl);
+                //driver.Navigate().GoToUrl(BaseUrl);
 
             }
             catch (TimeoutException e)
             {
-                Thread.Sleep(5000);
+                
                 Console.WriteLine(e);
             }
         }

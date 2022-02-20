@@ -19,9 +19,7 @@ namespace Marsprofile.Pages
         public void LoginSteps()
 
         {
-            //Driver.NavigateUrl();       
-
-            Thread.Sleep(1000);
+            Driver.NavigateUrl();       
 
             Driver.driver.FindElement(By.XPath("//a[contains(.,'Sign In')]")).Click();
             //Enter Username

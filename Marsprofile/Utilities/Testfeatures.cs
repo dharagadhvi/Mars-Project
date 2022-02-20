@@ -26,19 +26,20 @@ namespace Marsprofile.Utilities
             //initialise the browser
             Initialize();
 
-            Thread.Sleep(1000);
-            ////Launch page 
-            //Marsprofile.Pages.Driver.NavigateUrl();
+           Thread.Sleep(1000);
+            //Launch page 
+            
+           // NavigateUrl();
 
             //login steps
             Login loginobj=new Login();
             loginobj.LoginSteps();
         }
 
-       // [AfterScenario]
+        [Test]
         public void TearDown()
         {
-            Thread.Sleep(500);
+            Thread.Sleep(5000);
             // Screenshot
             string img = SaveScreenShotClass.SaveScreenshot(Driver.driver, "Report");
             test.Log(LogStatus.Info, "Snapshot below: " + test.AddScreenCapture(img));
